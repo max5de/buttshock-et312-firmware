@@ -141,7 +141,7 @@ class ET312FirmwareUtils(object):
 
 def download_firmware_file(path, filename):
     # If this url ever goes away, just attach
-    # https://web.archive.org/web/20150915223802/ to the front of it.
+    # https://web.archive.org/web/20160824194422if_/ to the front of it.
     url = 'http://media.erostek.com.s3.amazonaws.com/support/%s' % (filename)
     dl = os.path.join(path, filename)
     print("Downloading %s to %s..." % (url, path))
@@ -152,7 +152,7 @@ def download_firmware():
     script_dir = os.path.dirname(os.path.realpath(__file__))
     path = os.path.realpath(os.path.join(script_dir, "..", "firmware"))
     os.makedirs(path, exist_ok=True)
-    for f in ["312-15.upg", "312-16.upg"]:
+    for f in ["312-16.upg"]:
         download_firmware_file(path, f)
         dcfw = os.path.join(path, f.split(".")[0] + "-decrypted.bin")
         print("Making decrypted version at %s" % (dcfw))
